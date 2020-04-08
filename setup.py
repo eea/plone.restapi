@@ -1,8 +1,8 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
 
-import sys
 
-version = '6.3.1.dev0'
+version = '6.3.1.eea-dev0'
 
 
 def read(filename):
@@ -16,7 +16,9 @@ def read(filename):
     # Opening and reading as text failed, so retry opening as bytes.
     with open(filename, "rb") as myfile:
         contents = myfile.read()
+
         return contents.decode("utf-8")
+
 
 long_description = (
     read("README.rst")
