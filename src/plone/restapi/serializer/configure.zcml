@@ -24,6 +24,7 @@
     <adapter factory=".dxfields.RichttextFieldSerializer" />
     <adapter factory=".dxfields.DefaultPrimaryFieldTarget" />
     <adapter factory=".dxfields.PrimaryFileFieldTarget" />
+
     <adapter factory=".blocks.BlocksJSONFieldSerializer" />
 
     <configure zcml:condition="installed Products.Archetypes">
@@ -94,8 +95,7 @@
     </configure>
 
     <configure zcml:condition="have plone-5">
-        <adapter factory=".controlpanels.ControlpanelSerializeToJson" />
-        <adapter factory=".controlpanels.ControlpanelSummarySerializeToJson" />
+        <include package=".controlpanels" />
     </configure>
 
 </configure>

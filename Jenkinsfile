@@ -9,7 +9,7 @@ pipeline {
   }
 
   options {
-    buildDiscarder(logRotator(numToKeepStr:'30'))
+    buildDiscarder(logRotator(numToKeepStr:'100'))
     timeout(time: 30, unit: 'MINUTES')
     disableConcurrentBuilds()
   }
@@ -29,8 +29,11 @@ pipeline {
         sh "bin/buildout -c plone-5.2.x-performance.cfg"
         sh "bin/instance start"
         sh "sleep 20"
+
         sh "jmeter -n -t performance.jmx -l jmeter.csv"
-        // sh "cat jmeter.csv"
+        sh "bin/pip install locust"
+        sh "bin/locust -f performance/images.py --no-web -c 100 -r 10 --run-time 1m --host http://localhost:12345/Plone"
+
         sh "bin/instance stop"
       }
       post {

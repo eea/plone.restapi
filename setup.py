@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '6.3.1.eea-dev2'
+version = '6.8.1.eea-dev1'
 
 
 def read(filename):
@@ -64,6 +64,7 @@ setup(
         "Framework :: Plone :: 5.0",
         "Framework :: Plone :: 5.1",
         "Framework :: Plone :: 5.2",
+        "Framework :: Plone :: Core",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
