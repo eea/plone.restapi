@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '6.8.1.eea-dev1'
+version = '6.8.2.eea-dev0'
 
 
 def read(filename):

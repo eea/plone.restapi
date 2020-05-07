@@ -10,7 +10,7 @@ pipeline {
 
   options {
     buildDiscarder(logRotator(numToKeepStr:'100'))
-    timeout(time: 30, unit: 'MINUTES')
+    timeout(time: 60, unit: 'MINUTES')
     disableConcurrentBuilds()
   }
 
@@ -30,7 +30,10 @@ pipeline {
         sh "bin/instance start"
         sh "sleep 20"
 
-        sh "jmeter -n -t performance.jmx -l jmeter.csv"
+        sh "jmeter -n -t performance.jmx -l performance-jmeter.csv"
+
+        sh "jmeter -n -t volto.jmx -l performance-volto.csv"
+
         sh "bin/pip install locust"
         sh "bin/locust -f performance/images.py --no-web -c 100 -r 10 --run-time 1m --host http://localhost:12345/Plone"
 
@@ -38,7 +41,7 @@ pipeline {
       }
       post {
         always {
-          perfReport '**/jmeter.csv'
+          perfReport '**/performance-*.csv'
         }
       }
     }
