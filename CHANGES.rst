@@ -8,6 +8,74 @@ Changelog
 
 .. towncrier release notes start
 
+7.0.0a1 (2020-05-11)
+--------------------
+
+New features:
+
+
+- Resolve links in blocks to UIDs during deserialization and back to paths during
+  serialization.
+  [buchi,timo,cekk] (#808)
+
+
+Bug fixes:
+
+
+- Adapt tests to the new way of handling original image urls
+  [erral] (#932)
+
+
+6.12.0 (2020-05-11)
+-------------------
+
+New features:
+
+
+- Add database endpoint [timo] (#941)
+
+
+6.11.0 (2020-05-08)
+-------------------
+
+New features:
+
+
+- Add type-schema adapters for: Email, URI and Password
+  [avoinea] (#926)
+
+
+6.10.0 (2020-05-07)
+-------------------
+
+New features:
+
+
+- Add system endpoint. [timo] (#736)
+
+
+6.9.1 (2020-05-07)
+------------------
+
+Bug fixes:
+
+
+- Fixed @translations endpoint to only retrieve the translations that the current user
+  can really access using ``get_restricted_translations`` instead. This fixes the use
+  case where an user with no permissions on a translation accessing the endpoint returned
+  a 401.
+  [sneridagh] (#937)
+
+
+6.9.0 (2020-05-06)
+------------------
+
+New features:
+
+
+- Add endpoints for managing addons. [esteele] (#733)
+
+
 6.8.1 (2020-05-04)
 ------------------
 

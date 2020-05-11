@@ -1,8 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-
-version = '6.8.2.eea-dev0'
+version = '7.0.0a2.eea-dev0'
 
 
 def read(filename):
