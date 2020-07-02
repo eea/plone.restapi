@@ -1,7 +1,8 @@
-from setuptools import find_packages
-from setuptools import setup
+from setuptools import setup, find_packages
 
-version = '7.0.0a2.eea-dev0'
+import sys
+
+version = "7.0.0a5.dev0"
 
 
 def read(filename):
@@ -15,7 +16,6 @@ def read(filename):
     # Opening and reading as text failed, so retry opening as bytes.
     with open(filename, "rb") as myfile:
         contents = myfile.read()
-
         return contents.decode("utf-8")
 
 

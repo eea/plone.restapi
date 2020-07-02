@@ -67,6 +67,20 @@ class IPrimaryFieldTarget(Interface):
         """
 
 
+class IObjectPrimaryFieldTarget(Interface):
+    """Return a URL to direct the user to if the object has a primary field
+    that provides an IPrimaryFieldTarget.
+    """
+
+    def __init__(field, context, request):
+        """Adapts field, context and request.
+        """
+
+    def __call__():
+        """Returns a URL.
+        """
+
+
 class IDeserializeFromJson(Interface):
     """An adapter to deserialize a JSON object into an object in Plone."""
 
@@ -203,4 +217,19 @@ class IIndexQueryParser(Interface):
         Returns a transformed `idx_query` whose query options and query values
         have been reconstructed to the proper data types that the adapted
         index expects.
+        """
+
+
+class IBlockSearchableText(Interface):
+    """ Allow blocks to provide text for the SearchableText index
+
+    Register as a named adapter, where the name is the block @type
+    """
+
+    def __init__(field, context, request):
+        """Adapts a context and the request.
+        """
+
+    def __call__(value):
+        """Extract text from the block value. Returns text
         """
