@@ -63,6 +63,7 @@ class BlocksJSONFieldSerializer(DefaultFieldSerializer):
                         handlers.append(h)
 
                 for handler in sorted(handlers, key=lambda h: h.order):
+                    handler.blockid = id
                     block_value = handler(block_value)
 
                 value[id] = block_value
